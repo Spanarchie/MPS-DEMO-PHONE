@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+html, body, #map-canvas {
+	height: 100%;
+	margin: 0px;
+	padding: 0px
+}
+
+#mastTitle {
+	position: absolute ;
+	align-content:center;
+	top: 5px;
+	margin-left: 85px;
+	z-index: 5;
+	background-color: #f0f;
+	padding: 5px;
+	border: 1px solid #999;
+}
+
