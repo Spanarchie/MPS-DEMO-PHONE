@@ -3,7 +3,8 @@
 
 
 html, body, #map-canvas {
-	height: 100%;
+	height: 400px; 
+	width: 100%;
 	margin: 0px;
 	padding: 0px
 }
@@ -18,4 +19,3 @@ html, body, #map-canvas {
 	padding: 5px;
 	border: 1px solid #999;
 }
-

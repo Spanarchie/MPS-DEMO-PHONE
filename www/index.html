@@ -2,54 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Marker animations with <code>setTimeout()</code></title>
+    <title>MPS_RD</title>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-    <script type="text/javascript" src="./pc_cc.js"></script>
-    <link rel="stylesheet" type="text/css" href="./pc_cc.css" media="screen" />
-  <script>
-  	var london = new google.maps.LatLng(51.500816, -0.116730);
-  	function initialize() {
-  	  var mapOptions = {
-  	    zoom: 12,
-  	    center: london
-  	  };
-  	  map = new google.maps.Map(document.getElementById('map-canvas'),
-  	          mapOptions);
-  	}
-  	google.maps.event.addDomListener(window, 'load', initialize);
-  </script>  
+    <script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="./js/pc_cc.js"></script>
+    <script type="text/javascript" src="./js/mapping.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/pc_cc.css" media="screen" />
   </head>
 
 
-  <body >
+  <body onload="initialize()">
     <div class="container">
       <!-- <header id="masthead"> changed to <div id="masthead">: IE 7-8 hack for background image missing if <header> or <section> -->
         <div id="mastTitle" >
-          Metropoliton Police Control Demo.<button onclick="drop()">Try it</button><button onclick="step()">Step it</button><button onclick="getDirections()">Route it</button>
+          <b>Metropoliton Police Control Demo.</b></br><button onclick="drop()">Show Location</button>
+          <button onclick="stepper()">Patrol</button><button onclick="Route()">Route to incident</button><button onclick="clearMarkers()">Clear it</button>
         </div><!-- </header> -->
-      <div id="map-canvas" style="height: 400px; width: 100%;">
+      <div id="map-canvas">
       </div>
+
+
      <div id="comms" style="height: 150px; width: 100%;"> 
-
-
-
-<script>
-function myFunction(name,job)
-{
-alert("Welcome " + name + ", the " + job);
-}
-</script>
-
-     <h2>Comm's:</h2>
-     <textarea name="message" id="message" placeholder="Enter a cool message..." tabindex="5" class="txtblock"style="height: 100px; width: 100%;"></textarea>
+         <h2>Comm's:</h2>
+         <input id="DictText" type="text" x-webkit-speech />
+         <button id="transTxt" onclick="sendMsg()">transmit</button>
       </div>
      <div id="messages" style="height: 100px; width: 100%;"> 
      	<h2>Message:</h2> 
-     	<div class="message" id=msglog></div>
+     	<div class="message" id="msglog"></div>
      
      </div>
      <div id= "footer" ></div>
-
-</body>
   </body>
 </html>
