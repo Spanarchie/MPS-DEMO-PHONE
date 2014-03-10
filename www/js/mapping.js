@@ -85,13 +85,19 @@ if (status == google.maps.DirectionsStatus.OK) {
 } 
 
 
-function Router(beg, en) {
-var start = beg;
-var end = en;
+function Router() {
+var start = new google.maps.LatLng(51.502081, -0.140119);;
+var end = new google.maps.LatLng(51.501949,-0.127171);
+  var point1 = new google.maps.LatLng(51.507183, -0.127866);
+  var point2 = new google.maps.LatLng(51.500949,-0.126171);
+  var point3 = new google.maps.LatLng(51.508183, -0.128866);
+
+  var wps = [{ location: point1 }, { location: point2 }, { location: point3 }];
 var request = {
-origin:start,
-destination:end,
-travelMode: google.maps.TravelMode.WALKING
+  origin:start,
+  destination:end,
+  waypoints: wps,
+  travelMode: google.maps.TravelMode.WALKING
  };
  directionsService.route(request, function(result, status) {
 if (status == google.maps.DirectionsStatus.OK) {
@@ -99,8 +105,6 @@ if (status == google.maps.DirectionsStatus.OK) {
 } else { alert("couldn't get directions:"+status); }
 });
 } 
-
-
 
 
 
