@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="">
   <head>
     <meta charset="utf-8">
     <title>MPS_RD</title>
@@ -18,20 +18,32 @@
           <b>Metropoliton Police Control Demo.</b></br><button onclick="drop()">Show Location</button>
           <button onclick="stepper()">Patrol</button><button onclick="Route()">Route to incident</button><button onclick="clearMarkers()">Clear it</button>
         </div><!-- </header> -->
-      <div id="map-canvas">
-      </div>
+<div id="info">
+      <div id="map-canvas" style="width: 60%;float: left;"> </div>
 
 
-     <div id="comms" style="height: 150px; width: 100%;"> 
-         <h2>Comm's:</h2>
-         <input id="DictText" type="text" x-webkit-speech />
+     <div id="comms" style="height:50px; width: 40%; float: left;">
+	 	<div>
+         <h3>Comm's:</h3>
+         <input type="text" ng-model="msg" / >
          <button id="transTxt" onclick="sendMsg()">transmit</button>
-      </div>
-     <div id="messages" style="height: 100px; width: 100%;"> 
-     	<h2>Message:</h2> 
-     	<div class="message" id="msglog"></div>
-     
      </div>
+     
+    <div id="messages" style="height: 100px; width: 100%;" 
+        ng-init = "IMmessages = ['LT354: Only suspect injured','Suspect under controll. medical assistance required. ','LT354: On Scene','CC: Suspect is under the infulence. Cause unknown.','CC: Suspect armed with knife.','LT354: Affirative. enRoute.','CC:  LT354 - Can you attend assault at the Bull' ]"> 
+       	<h3>Message:</h3> 
+       	<div class="message" id="msglog">
+            <ul>
+                <li ng-repeat="msgs in IMmessages"> {{ msgs }} </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
      <div id= "footer" ></div>
+
+
+    <script type="text/javascript" src="./js/angular.min.js"></script>
+    <script type="text/javascript" src="./js/angular-local-storage.js"></script>
   </body>
 </html>
